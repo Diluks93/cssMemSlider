@@ -1,0 +1,10 @@
+:root {
+  --main-font: 'Londrina Solid', cursive;
+}
+
+* {
+  font-family: 'Londrina Solid', cursive;
+  font-size: 1.6rem;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
