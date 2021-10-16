@@ -7,30 +7,128 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Londrina Solid', cursive;
-  font-size: 1.6rem;
-  text-align: center;
-  color: azure
+  font-size: 1.3rem;
+  color: azure;
 }
 
 body {
-  /* background: rgb(17,181,71); */
   background: radial-gradient(circle, rgba(17,181,71,1) 0%, rgba(9,121,69,1) 54%, rgba(0,255,85,1) 100%);
 }
 
+main {
+  width: 65vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
 .cssmemslider {
-  height: 60vh;
-  width: 90vw;
+  height: 80vh;
+  width: 60vw;
   margin: 1% auto 0;
 }
 
+.cssmemslider > input {
+  display: none;
+}
+
 .pictures {
-  background-color: #ddd;
-  height: inherit;
+  height: 100%;
   overflow: hidden;
-  width: inherit;
+  max-width: 100%;
+  width: 100%;
+  border-radius: 3%;
+}
+
+.pictures__wrapper {
+  display: flex;
+  transition: all 0.5s linear;
 }
 
 .picture {
-  height: inherit;
-  width: inherit;
+  display: inline-block;
+  height: 100%;
+  min-width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.texts {
+  overflow: hidden;
+  flex: 2.6;
+}
+
+.texts__wrapper {
+  display: flex;
+  transition: all 0.5s linear;
+}
+
+.text {
+  min-width: 100%;
+  margin-top: 1.5%;
+}
+
+.text > h2,
+.text > p {
+  font-size: 1rem;
+}
+
+.controls__wrapper {
+  flex: 0.5;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.controls > label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.controls > label > span {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background: azure;
+  border-radius: 50%;
+  transition: all 0.5s linear;
+}
+
+#slide1:checked ~ .pictures .label1 span,
+#slide2:checked ~ .pictures .label2 span,
+#slide3:checked ~ .pictures .label3 span,
+#slide4:checked ~ .pictures .label4 span,
+#slide5:checked ~ .pictures .label5 span {
+  transform: scale(1.25);
+}
+
+#slide1:checked ~ .pictures .pictures__wrapper {
+  transform: translateX(0);
+}
+
+#slide2:checked ~ .pictures .pictures__wrapper {
+  transform: translateX(-100%);
+}
+
+#slide3:checked ~ .pictures .pictures__wrapper {
+  transform: translateX(-200%);
+}
+
+#slide4:checked ~ .pictures .pictures__wrapper {
+  transform: translateX(-300%);
+}
+
+#slide5:checked ~ .pictures .pictures__wrapper {
+  transform: translateX(-400%);
 }
