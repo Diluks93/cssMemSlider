@@ -32,7 +32,7 @@ main {
 }
 
 .cssmemslider {
-  height: 80vh;
+  height: 90%;
   width: 60vw;
   margin: 1% auto 0;
 }
@@ -104,9 +104,15 @@ main {
 }
 
 .controls > label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   user-select: none;
   border: var(--white) 2px;
+  width: 1.9rem;
+  height: 1.9rem;
+
 }
 
 .controls > label > span {
@@ -171,8 +177,49 @@ main {
   label:hover span {
     background: var(--hover);
   }
+
   label:active span {
     background: var(--active);
     box-shadow: 0 0 1rem 0.4rem var(--white);
+  }
+}
+
+@media (max-width: 1024px) {
+  .cssmemslider {
+    height: 85%;
+  }
+}
+
+@media (max-width: 768px) {
+  .cssmemslider {
+    height: 74%;
+  }
+
+  .wrapper {
+    margin-top: 10%;
+    flex-direction: column;
+  }
+
+  .texts {
+    width: 100%;
+  }
+}
+
+@media (max-width: 426px) {
+  .title {
+    font-size: 1rem;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .cssmemslider {
+    height: 55%;
+  }
+
+  .texts {
+    flex: 1;
+    margin-top: 7%;
   }
 }
