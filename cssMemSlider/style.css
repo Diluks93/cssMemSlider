@@ -1,14 +1,19 @@
 :root {
   --main-font: 'Londrina Solid', cursive;
+  --black: black;
+  --white: azure;
+  --green: rgb(49, 221, 14);
+  --hover: yellowgreen;
+  --active: black;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Londrina Solid', cursive;
+  font-family: var(--main-font);
   font-size: 1.3rem;
-  color: azure;
+  color: var(--white);
 }
 
 body {
@@ -18,17 +23,23 @@ body {
 main {
   width: 65vw;
   height: 100vh;
-  background-color: black;
+  background-color: var(--black);
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  box-shadow:  0 0 2.5rem 0.4rem var(--black)
 }
 
 .cssmemslider {
   height: 80vh;
   width: 60vw;
   margin: 1% auto 0;
+}
+
+.content {
+  width: inherit;
+  height: inherit;
 }
 
 .cssmemslider > input {
@@ -68,6 +79,7 @@ main {
 
 .texts__wrapper {
   display: flex;
+  flex-direction: row-reverse;
   transition: all 0.5s linear;
 }
 
@@ -94,41 +106,73 @@ main {
 .controls > label {
   cursor: pointer;
   user-select: none;
+  border: var(--white) 2px;
 }
 
 .controls > label > span {
   display: inline-block;
   width: 1rem;
   height: 1rem;
-  background: azure;
+  background: var(--white);
   border-radius: 50%;
-  transition: all 0.5s linear;
+  transition: all 0.5s cubic-bezier(0.29, 0.22, 0.03, 1.29);
 }
 
-#slide1:checked ~ .pictures .label1 span,
-#slide2:checked ~ .pictures .label2 span,
-#slide3:checked ~ .pictures .label3 span,
-#slide4:checked ~ .pictures .label4 span,
-#slide5:checked ~ .pictures .label5 span {
-  transform: scale(1.25);
+#slide1:checked ~ .content .label1 span,
+#slide2:checked ~ .content .label2 span,
+#slide3:checked ~ .content .label3 span,
+#slide4:checked ~ .content .label4 span,
+#slide5:checked ~ .content .label5 span {
+  transform: scale(0.7);
+  background-color: var(--green);
 }
 
-#slide1:checked ~ .pictures .pictures__wrapper {
+#slide1:checked ~ .content .pictures__wrapper {
   transform: translateX(0);
 }
 
-#slide2:checked ~ .pictures .pictures__wrapper {
+#slide2:checked ~ .content .pictures__wrapper {
   transform: translateX(-100%);
 }
 
-#slide3:checked ~ .pictures .pictures__wrapper {
+#slide3:checked ~ .content .pictures__wrapper {
   transform: translateX(-200%);
 }
 
-#slide4:checked ~ .pictures .pictures__wrapper {
+#slide4:checked ~ .content .pictures__wrapper {
   transform: translateX(-300%);
 }
 
-#slide5:checked ~ .pictures .pictures__wrapper {
+#slide5:checked ~ .content .pictures__wrapper {
   transform: translateX(-400%);
+}
+
+#slide1:checked ~ .content .texts__wrapper {
+  transform: translateX(0);
+}
+
+#slide2:checked ~ .content .texts__wrapper {
+  transform: translateX(100%);
+}
+
+#slide3:checked ~ .content .texts__wrapper {
+  transform: translateX(200%);
+}
+
+#slide4:checked ~ .content .texts__wrapper {
+  transform: translateX(300%);
+}
+
+#slide5:checked ~ .content .texts__wrapper {
+  transform: translateX(400%);
+}
+
+@media (hover: hover) {
+  label:hover span {
+    background: var(--hover);
+  }
+  label:active span {
+    background: var(--active);
+    box-shadow: 0 0 1rem 0.4rem var(--white);
+  }
 }
