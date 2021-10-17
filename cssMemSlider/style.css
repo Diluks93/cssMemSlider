@@ -46,6 +46,11 @@ main {
   display: none;
 }
 
+.title,
+.subtitle {
+  animation: skew 0.5s infinite linear;
+}
+
 .pictures {
   height: 100%;
   overflow: hidden;
@@ -57,7 +62,7 @@ main {
 .pictures__wrapper {
   display: flex;
   transition: all 0.5s linear;
-}
+  }
 
 .picture {
   display: inline-block;
@@ -171,6 +176,18 @@ main {
 
 #slide5:checked ~ .content .texts__wrapper {
   transform: translateX(400%);
+}
+
+@keyframes skew {
+  0% {
+    transform: skewX(10deg);
+  }
+  50% {
+    transform: skewX(-20deg);
+  }
+  100% {
+    transform: skewX(10deg);
+  }
 }
 
 @media (hover: hover) {
